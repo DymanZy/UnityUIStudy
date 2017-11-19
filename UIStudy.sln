@@ -1,12 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio for Mac
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIStudy", "UIStudy.csproj", "{201F9940-3CAB-7C5F-61B3-09BEEDE0EF4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIStudy.Editor", "UIStudy.Editor.csproj", "{AE36C3AC-F131-FE72-283C-07C58072C87B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{201F9940-3CAB-7C5F-61B3-09BEEDE0EF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201F9940-3CAB-7C5F-61B3-09BEEDE0EF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201F9940-3CAB-7C5F-61B3-09BEEDE0EF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201F9940-3CAB-7C5F-61B3-09BEEDE0EF4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE36C3AC-F131-FE72-283C-07C58072C87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE36C3AC-F131-FE72-283C-07C58072C87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE36C3AC-F131-FE72-283C-07C58072C87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE36C3AC-F131-FE72-283C-07C58072C87B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

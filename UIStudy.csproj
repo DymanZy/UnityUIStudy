@@ -243,7 +243,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Closed.cs" />
+    <Compile Include="Assets\Scripts\EditorTest.cs" />
+    <Compile Include="Assets\Scripts\Example.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
