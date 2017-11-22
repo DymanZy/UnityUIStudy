@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// TODO : 还需要在 /Resources/Popup/ 目录下创建PopSingleText的Prefab
+/// </summary>
 public class PopSingleText : UIPopupBase
 {
     public enum Layout { SingleButton, OkAndCancelButton };
