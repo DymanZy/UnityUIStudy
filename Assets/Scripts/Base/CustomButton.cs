@@ -8,8 +8,13 @@ using UnityEngine.EventSystems;
 public class CustomButton : Button
 {
 
+    private enum ButtonState {
+        Normal, Press, Disable
+    }
+
     [SerializeField]
     private uGUIEventSystemSupporter EventSupporter;
+
 
     private bool callDelegateFlag = true;
     public void setDelegateFlag(bool flag) {

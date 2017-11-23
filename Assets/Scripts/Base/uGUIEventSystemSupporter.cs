@@ -95,86 +95,86 @@ IUpdateSelectedHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IBeginDragHandler>(eventData);
     }
 
     public void OnCancel(BaseEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<ICancelHandler>(eventData);
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IDeselectHandler>(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IDragHandler>(eventData);
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IDropHandler>(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IEndDragHandler>(eventData);
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IInitializePotentialDragHandler>(eventData);
     }
 
     public void OnMove(AxisEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IMoveHandler>(eventData);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IPointerClickHandler>(eventData);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IPointerDownHandler>(eventData);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IPointerEnterHandler>(eventData);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IPointerExitHandler>(eventData);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IPointerUpHandler>(eventData);
     }
 
     public void OnScroll(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IScrollHandler>(eventData);
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<ISelectHandler>(eventData);
     }
 
     public void OnSubmit(BaseEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<ISubmitHandler>(eventData);
     }
 
     public void OnUpdateSelected(BaseEventData eventData)
     {
-        throw new NotImplementedException();
+        Call<IUpdateSelectedHandler>(eventData);
     }
 }
