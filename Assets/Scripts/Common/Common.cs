@@ -28,10 +28,16 @@ namespace Common
             brown
         }
 
-        private const string LogMessageFormat_NormalMessage = "{0}";
+        private const string LogMessageFormat_NormalMessage = "Message : {0}";
         private const string LogMessageFormat_TagMessage = "Tag:{1}\nMessage : {0}";
         private const string LogMessageFormat_ClassTagMessage = "[ {2} ] Tag : {1}\nMessage : {0}";
-        private const string LogMessageFormat_ClassMessage = "[ {2} ]  Message : {0}";
+        private const string LogMessageFormat_ClassMessage = "[ {2} ]  \nMessage : {0}";
+
+
+        public static void Log(string msg)
+        {
+            log(msg, LogLevel.Normal);
+        }
 
         public static void Log(string msg, LogColor color)
         {
@@ -71,13 +77,25 @@ namespace Common
         {
             string format = LogMessageFormat_NormalMessage;
             if (outputClass != null && !string.IsNullOrEmpty(tag))
+            {
                 format = LogMessageFormat_ClassTagMessage;
+                log(string.Format(format, msg, tag, outputClass.GetType().Name), level);
+            }
             else if (outputClass == null && !string.IsNullOrEmpty(tag))
+            {
                 format = LogMessageFormat_TagMessage;
+                log(string.Format(format, msg, tag, ""), level);
+            }
             else if (outputClass != null && string.IsNullOrEmpty(tag))
+            {
                 format = LogMessageFormat_ClassMessage;
-
-            log(string.Format(format, msg, tag, outputClass.GetType().Name), level);
+                log(string.Format(format, msg, "", outputClass.GetType().Name), level);
+            }
+            else
+            {
+                log(string.Format(format, msg), level);
+            }
+            
         }
 
 
@@ -90,7 +108,7 @@ namespace Common
                     break;
 
                 case LogLevel.Exception:
-                    Debug.Log("===<<< [Exception] >>>===  "+msg);
+                    Debug.LogError("===<<< [Exception] >>>===  "+msg);
                     break;
 
                 case LogLevel.Warning:
