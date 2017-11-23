@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class UIPopupController : ObjectBaseBehavior
 {
-    private static readonly string selfPrefabResource = "Popup/PopRoot";
+    private static readonly string selfResource = "Popup/PopRoot";
     private static readonly string resourceRoot = "Popup/";
 
     private static readonly Color onColor = new Color(0f, 0f, 0f, 0.66f);
@@ -16,7 +15,7 @@ public class UIPopupController : ObjectBaseBehavior
 
     // 背景遮挡层
     private Image BackGroundPlate = null;
-    private Image TouchDefender = null;
+    //private Image TouchDefender = null;
 
     private Dictionary<System.Type, UIPopupBase> popInstances = new Dictionary<Type, UIPopupBase>();
     private List<UIPopupBase> openStack = new List<UIPopupBase>();
@@ -26,10 +25,10 @@ public class UIPopupController : ObjectBaseBehavior
     {
         if (instance == null)
         {
-            GameObject prefab = Resources.Load<GameObject>(selfPrefabResource);
+            GameObject prefab = Resources.Load<GameObject>(selfResource);
             if (prefab == null)
             {
-                Debug.Log("Error. PopRoot Prefab NotFound. Please create a Resources/Popup/PopRoot.");
+                Common.LogUtil.Log("Error. PopRoot Prefab NotFound. Please create a Resources/Popup/PopRoot.");
                 return null;
             }
 
@@ -42,7 +41,6 @@ public class UIPopupController : ObjectBaseBehavior
 
             GameObject.DontDestroyOnLoad(instance.gameObject);
         }
-
         return instance;
     }
 
@@ -54,22 +52,11 @@ public class UIPopupController : ObjectBaseBehavior
         instance = null;
     }
 
-
-    public T AddPop<T>() where T : UIPopupBase
-    {
-        return null;
-    }
-
-    public void RemovePop<T>()
-    {
-
-    }
-
     public T OpenPop<T>(System.Action closeCallBack, params object[] param) where T : UIPopupBase
     {
         if (!popInstances.ContainsKey(typeof(T)))
         {
-            GameObject prefab = Resources.Load<GameObject>(selfPrefabResource+typeof(T).Name);
+            GameObject prefab = Resources.Load<GameObject>(resourceRoot + typeof(T).Name);
             if (prefab == null)
             {
                 Debug.Log("[UIPopupController] OpenPop failure. prefab is null.");
@@ -88,8 +75,7 @@ public class UIPopupController : ObjectBaseBehavior
         }
 
         if (!popInstances[typeof(T)].Open(closeCallBack, param))
-            //  打开该窗口失败
-            return null;
+            return null;//  打开该窗口失败
 
         BackGroundPlate.color = onColor;
         instance.BackGroundPlate.gameObject.SetActive(true);
@@ -137,6 +123,42 @@ public class UIPopupController : ObjectBaseBehavior
         return popInstances[typeof(T)] as T;
     }
 
+    public void CloseForegroundPopup()
+    {
+        //  关闭顶部的窗口
+        if (openStack.Count > 0)
+        {
+            UIPopupBase p =  openStack[openStack.Count - 1];
+            openStack.Remove(p);
+            p.Close();
+        }
+
+        //  所有窗口已关闭，隐藏遮挡层
+        if (openStack.Count <= 0)
+        {
+            BackGroundPlate.color = offColor;
+            instance.BackGroundPlate.gameObject.SetActive(false);
+            return;
+        }
+
+        //  仍有窗口未关闭，重新调整遮挡层的层级
+        List<GameObject> tmp = new List<GameObject>(openStack.Where(v => true).Select(v => v.gameObject).ToArray());
+        tmp.Insert(tmp.Count - 1, BackGroundPlate.gameObject);
+        int sibling = 0;
+        foreach (var g in tmp)
+        {
+            g.transform.SetSiblingIndex(sibling++);
+        }
+    }
+
+    public bool isCurrentlyOpen()
+    {
+        return openStack.Count > 0;
+    }
+
+    /// <summary>
+    ///     打开纯文本窗口
+    /// </summary>
     public void OpenSingleTextPop(
         PopSingleText.Layout layout,
         string description,
@@ -162,4 +184,3 @@ public class UIPopupController : ObjectBaseBehavior
             pop.CancelCallBack.add(callback_cancel);
     }
 }
-

@@ -39,6 +39,21 @@ namespace Common
             log(msg, LogLevel.Normal);
         }
 
+        public static void LogWarning(string msg)
+        {
+            log(msg,LogLevel.Warning);
+        }
+
+        public static void LogException(string msg)
+        {
+            log(msg, LogLevel.Exception);
+        }
+
+        public static void LogError(string msg)
+        {
+            log(msg, LogLevel.Error);
+        }
+
         public static void Log(string msg, LogColor color)
         {
             switch (color)
@@ -66,11 +81,6 @@ namespace Common
                     break;
             }
             Log(msg, LogLevel.Normal);
-        }
-
-        public static void Log(string msg, LogLevel level = LogLevel.Normal)
-        {
-            Log(msg, null, null, level);
         }
 
         public static void Log(string msg, object outputClass = null, string tag = null, LogLevel level = LogLevel.Normal)
