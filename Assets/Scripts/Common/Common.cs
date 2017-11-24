@@ -9,9 +9,13 @@ namespace Common
     public static class LogUtil
     {
 
+		public static LogLevel CurrLevel = LogLevel.Everything;
+
         public enum LogLevel
         {
+			Everything,
             Normal,
+			Important,
             Exception,
             Warning,
             Error
@@ -108,9 +112,11 @@ namespace Common
             
         }
 
-
         private static void log(string msg, LogLevel level)
         {
+			//	等级低的过滤掉
+			if (level < CurrLevel) return;
+
             switch (level)
             {
                 case LogLevel.Normal:
@@ -130,6 +136,10 @@ namespace Common
                     break;
             }
         }
+    }
+
+    public static class FileUtil
+    {
 
     }
 }

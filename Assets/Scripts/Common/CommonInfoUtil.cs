@@ -9,19 +9,15 @@ using UnityEngine;
 public class CommonInfoUtil
 {
 
-	public static void ActiveLog()
+	public static int GetTimeStamp()
 	{
-		StringBuilder sb = new StringBuilder();
+		return ConvertDateTimeInt(System.DateTime.Now);
+	}
 
-		sb.Append(GetTimeFormat());
-		sb.Append(GetSystemInfo());
-		sb.Append("\nMacAddress : " + GetMacAddress());
-		sb.Append("\nIPv4 : " + Network.player.ipAddress);
-		sb.Append("\nNetworkType : " + GetNetworkType()+"\n\n");
-
-
-		Common.LogUtil.Log(sb.ToString());
-
+	private static int ConvertDateTimeInt(System.DateTime time)
+	{
+		System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+		return (int)(time - startTime).TotalSeconds;
 	}
 
 	private static string GetTimeFormat()
@@ -38,6 +34,16 @@ public class CommonInfoUtil
 		sb.Append("\nweekNum : " + (System.DateTime.Now.DayOfYear / 7 + 1));
 
 		return sb.ToString();
+	}
+
+	public static string GetTimeYMD()
+	{
+		return System.DateTime.Now.Year.ToString() + System.DateTime.Now.Month.ToString() + System.DateTime.Now.Day.ToString();
+	}
+
+	public static string GetTimeYM()
+	{
+		return System.DateTime.Now.Year.ToString() + System.DateTime.Now.Month.ToString();
 	}
 
 	private static string GetSystemInfo()
