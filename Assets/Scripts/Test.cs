@@ -16,24 +16,26 @@ public class Test : MonoBehaviour {
 
 
     void LogTest() {
-        Common.LogUtil.Log("================  Type Test ================");
-        Common.LogUtil.Log("with classType", this);
-        Common.LogUtil.Log("with clasType and tag", this, "TAG");
-        Common.LogUtil.Log("with classType, tag and level", this, "TAG", Common.LogUtil.LogLevel.Error);
+        
+        LogUtil.Log("================  Log Format Test ================");
+        LogUtil.Log("With ClassType", this);
+        LogUtil.Log("With ClasType And Tag", this, "MyTag");
+        LogUtil.Log("With ClassType, Tag And Level", this, "MyTag", LogUtil.LogLevel.Warning);
 
-        Common.LogUtil.Log("================  Level Test ================");
-        Common.LogUtil.Log("Normal");
-        Common.LogUtil.LogWarning("Warning");
-        Common.LogUtil.LogException("Exception");
-        Common.LogUtil.LogError("Error");
+        LogUtil.Log("================  Level Test ================");
+        LogUtil.Log("Normal Log");
+        LogUtil.LogImportant("Important Log");
+        LogUtil.LogWarning("Warning Log");
+        LogUtil.LogError("Error Log");
 
-        Common.LogUtil.Log("================  Color Test ================");
-        Common.LogUtil.Log("blue", Common.LogUtil.LogColor.blue);
-        Common.LogUtil.Log("brown", Common.LogUtil.LogColor.brown);
-        Common.LogUtil.Log("green", Common.LogUtil.LogColor.green);
-        Common.LogUtil.Log("purple", Common.LogUtil.LogColor.purple);
-        Common.LogUtil.Log("red", Common.LogUtil.LogColor.red);
-        Common.LogUtil.Log("white", Common.LogUtil.LogColor.white);
-        Common.LogUtil.Log("yellow", Common.LogUtil.LogColor.yellow);
+
+        LogUtil.Log("================  Color Test ================");
+        LogUtil.Log("blue", LogUtil.LogColor.blue);
+        LogUtil.Log("brown", LogUtil.LogColor.brown);
+        LogUtil.Log("green", LogUtil.LogColor.green);
+        LogUtil.Log("purple", LogUtil.LogColor.purple);
+        LogUtil.Log("red", LogUtil.LogColor.red);
+        LogUtil.Log("white", LogUtil.LogColor.white);
+        LogUtil.Log("yellow", LogUtil.LogColor.yellow);
     }
 }

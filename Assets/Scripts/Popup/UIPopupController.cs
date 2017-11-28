@@ -28,7 +28,7 @@ public class UIPopupController : ObjectBaseBehavior
             GameObject prefab = Resources.Load<GameObject>(selfResource);
             if (prefab == null)
             {
-                Common.LogUtil.Log("Error. PopRoot Prefab NotFound. Please create a Resources/Popup/PopRoot.");
+                LogUtil.Log("Error. PopRoot Prefab NotFound. Please create a Resources/Popup/PopRoot.");
                 return null;
             }
 

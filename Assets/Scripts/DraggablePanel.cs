@@ -24,11 +24,11 @@ public class DraggablePanel : MonoBehaviour {
 	}
 
     private void ButtonEvent_Test(uGUIEventSystemSupporter s) {
-        Common.LogUtil.Log("Click Button Test");
+        LogUtil.Log("Click Button Test");
     }
 
     private void ButtonEvent_CustomTest(CustomButton b) {
-        Common.LogUtil.Log("Click Button Custom Test");
+        LogUtil.Log("Click Button Custom Test");
     }
 
 }
