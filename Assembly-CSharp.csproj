@@ -5,8 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{D8050353-5D47-B18B-C810-C5FB8A22A2F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -47,36 +46,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Base\CallBackSupporter.cs" />
-    <Compile Include="Assets\Scripts\Base\CustomButton.cs" />
-    <Compile Include="Assets\Scripts\Base\ObjectBaseBehavior.cs" />
-    <Compile Include="Assets\Scripts\Base\uGUIEventSystemSupporter.cs" />
-    <Compile Include="Assets\Scripts\EditorTest.cs" />
-    <Compile Include="Assets\Scripts\Example.cs" />
-    <Compile Include="Assets\Scripts\Popup\PopSingleText.cs" />
-    <Compile Include="Assets\Scripts\Popup\UIPopupBase.cs" />
-    <Compile Include="Assets\Scripts\Popup\UIPopupController.cs" />
-    <None Include="Assets\Textures\SF UI\Background\LICENSE.txt" />
-    <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
-    <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PlaymodeTestsRunner">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VR">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\Scripts\Base\CallBackSupporter.cs" />
+     <Compile Include="Assets\Scripts\Base\CustomButton.cs" />
+     <Compile Include="Assets\Scripts\Base\ObjectBaseBehavior.cs" />
+     <Compile Include="Assets\Scripts\Base\uGUIEventSystemSupporter.cs" />
+     <Compile Include="Assets\Scripts\Common\CommonInfoUtil.cs" />
+     <Compile Include="Assets\Scripts\Common\CoroutineRunner.cs" />
+     <Compile Include="Assets\Scripts\Common\DontDestorySingletonBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Common\LogUtil.cs" />
+     <Compile Include="Assets\Scripts\DraggablePanel.cs" />
+     <Compile Include="Assets\Scripts\EditorTest.cs" />
+     <Compile Include="Assets\Scripts\Popup\PopSingleText.cs" />
+     <Compile Include="Assets\Scripts\Popup\UIPopupBase.cs" />
+     <Compile Include="Assets\Scripts\Popup\UIPopupController.cs" />
+     <Compile Include="Assets\Scripts\Test.cs" />
+     <None Include="Assets\Textures\SF UI\Background\LICENSE.txt" />
+     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -86,4 +90,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
