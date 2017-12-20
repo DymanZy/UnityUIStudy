@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class CommandBuild {
+public class TestBuild {
 	public static void BuildAndroid() {
 		string[] levels = { "Assets/Scenes/Drag And Drop.unity" };
 		string savePath = "./Output/GitHubTest_" + DateTime.Now.ToString("yyMMdd_HHmm") + ".apk";
