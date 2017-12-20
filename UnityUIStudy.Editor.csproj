@@ -132,10 +132,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\CommandBuild.cs" />
     <Compile Include="Assets\Editor\EditorWindowTest.cs" />
     <Compile Include="Assets\Editor\FindRef.cs" />
     <Compile Include="Assets\Editor\MyEditor.cs" />
+    <Compile Include="Assets\Editor\TestBuild.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
